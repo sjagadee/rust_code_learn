@@ -1,22 +1,19 @@
-
-// Sotred in static memory
-const MY_STR: &str = "Hello from CONSTANT";
-
 fn main() {
 
-    // heap
-    let s: String = String::from("Hello World");
-    println!("s is {}", s);
+    // Dereferencing coercion
+    let mut a: String = String::from("Hello World");
+    let b: &mut String = &mut a;
     
-    // s_1 is on Stack
-    // "Hello2" stored in string literal
-    let s_1: &str = "Hello2";
-    println!("s_1 is {}", s_1);
+    *b = String::from("New World");
+    println!("{}", a);
     
-    // msg here is sotred in heap
-    let msg: String = "New Hello".to_string();
-    println!("msg is {}", msg);
+    let mut x: i32 = 55;
+    dbg!(x);
+    x = 500;
+    dbg!(x);
     
-    println!("constant in static memory {}", MY_STR);
-    
+    let y: &mut i32 = &mut x;
+    // defrerncing coercion
+    *y += 5;
+    dbg!(y);
 }
